@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<env:Body>
+<m:markupvalidationresponse env:encodingStyle="http://www.w3.org/2003/05/soap-encoding" xmlns:m="http://www.w3.org/2005/10/markup-validator">
+    <m:uri>http://www.google.com/</m:uri>
+    <m:checkedby>http://localhost:7002/w3c-markup-validator/</m:checkedby>
+    <m:doctype></m:doctype>
+    <m:charset>iso-8859-1</m:charset>
+    <m:validity>false</m:validity>
+    <m:errors>
+        <m:errorcount>65</m:errorcount>
+        <m:errorlist>
+
+            <m:error>
+                <m:line>1</m:line>
+                <m:col>14</m:col>
+                <m:message>no internal or external document type declaration subset; will parse without validation</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>1</m:line>
+                <m:col>461</m:col>
+                <m:message>general entity &quot;ct&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>1</m:line>
+                <m:col>463</m:col>
+                <m:message>reference to entity &quot;ct&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>1</m:line>
+                <m:col>470</m:col>
+                <m:message>general entity &quot;cad&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>1</m:line>
+                <m:col>473</m:col>
+                <m:message>reference to entity &quot;cad&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>1</m:line>
+                <m:col>480</m:col>
+                <m:message>general entity &quot;zx&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>1</m:line>
+                <m:col>482</m:col>
+                <m:message>reference to entity &quot;zx&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>3</m:line>
+                <m:col>120</m:col>
+                <m:message>general entity &quot;q&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>3</m:line>
+                <m:col>121</m:col>
+                <m:message>reference to entity &quot;q&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>3</m:line>
+                <m:col>211</m:col>
+                <m:message>character &quot;;&quot; not allowed in attribute specification list</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>3</m:line>
+                <m:col>444</m:col>
+                <m:message>reference to entity &quot;cad&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>4</m:line>
+                <m:col>17</m:col>
+                <m:message>general entity &quot;setTimeout&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>4</m:line>
+                <m:col>27</m:col>
+                <m:message>reference to entity &quot;setTimeout&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>949</m:col>
+                <m:message>an attribute value must be a literal unless it contains only name characters</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>962</m:col>
+                <m:message>an attribute value must be a literal unless it contains only name characters</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>975</m:col>
+                <m:message>an attribute value must be a literal unless it contains only name characters</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>989</m:col>
+                <m:message>an attribute value must be a literal unless it contains only name characters</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1003</m:col>
+                <m:message>an attribute value must be a literal unless it contains only name characters</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1306</m:col>
+                <m:message>general entity &quot;tab&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1309</m:col>
+                <m:message>reference to entity &quot;tab&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1378</m:col>
+                <m:message>reference to entity &quot;tab&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1450</m:col>
+                <m:message>reference to entity &quot;tab&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1521</m:col>
+                <m:message>reference to entity &quot;tab&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1591</m:col>
+                <m:message>reference to entity &quot;tab&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1666</m:col>
+                <m:message>reference to entity &quot;tab&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1763</m:col>
+                <m:message>general entity &quot;raquo&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1768</m:col>
+                <m:message>reference to entity &quot;raquo&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1809</m:col>
+                <m:message>an attribute value must be a literal unless it contains only name characters</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1836</m:col>
+                <m:message>general entity &quot;pref&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1840</m:col>
+                <m:message>reference to entity &quot;pref&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1844</m:col>
+                <m:message>general entity &quot;pval&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1848</m:col>
+                <m:message>reference to entity &quot;pval&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1852</m:col>
+                <m:message>reference to entity &quot;q&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1904</m:col>
+                <m:message>general entity &quot;usg&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>1907</m:col>
+                <m:message>reference to entity &quot;usg&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2082</m:col>
+                <m:message>general entity &quot;continue&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2090</m:col>
+                <m:message>reference to entity &quot;continue&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2350</m:col>
+                <m:message>general entity &quot;lol&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2353</m:col>
+                <m:message>reference to entity &quot;lol&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2457</m:col>
+                <m:message>an attribute value must be a literal unless it contains only name characters</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2460</m:col>
+                <m:message>general entity &quot;nbsp&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2464</m:col>
+                <m:message>reference to entity &quot;nbsp&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2493</m:col>
+                <m:message>&quot;NOWRAP&quot; is not a member of a group specified for any attribute</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2859</m:col>
+                <m:message>&quot;NOWRAP&quot; is not a member of a group specified for any attribute</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2867</m:col>
+                <m:message>an attribute value must be a literal unless it contains only name characters</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2899</m:col>
+                <m:message>reference to entity &quot;nbsp&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2905</m:col>
+                <m:message>reference to entity &quot;nbsp&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2914</m:col>
+                <m:message>an attribute value must be a literal unless it contains only name characters</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2965</m:col>
+                <m:message>reference to entity &quot;nbsp&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2971</m:col>
+                <m:message>reference to entity &quot;nbsp&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>2980</m:col>
+                <m:message>an attribute value must be a literal unless it contains only name characters</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>3114</m:col>
+                <m:message>reference to entity &quot;nbsp&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>3247</m:col>
+                <m:message>general entity &quot;copy&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>3251</m:col>
+                <m:message>reference to entity &quot;copy&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>3714</m:col>
+                <m:message>general entity &quot;google.timers.load.t&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>5</m:line>
+                <m:col>3734</m:col>
+                <m:message>reference to entity &quot;google.timers.load.t&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>6</m:line>
+                <m:col>120</m:col>
+                <m:message>general entity &quot;google.j&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>6</m:line>
+                <m:col>128</m:col>
+                <m:message>reference to entity &quot;google.j&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>6</m:line>
+                <m:col>130</m:col>
+                <m:message>general entity &quot;google.j.xi&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>6</m:line>
+                <m:col>141</m:col>
+                <m:message>reference to entity &quot;google.j.xi&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>6</m:line>
+                <m:col>154</m:col>
+                <m:message>reference to entity &quot;google.j.xi&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>7</m:line>
+                <m:col>73</m:col>
+                <m:message>general entity &quot;google.timers.load.t.xjs&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>7</m:line>
+                <m:col>97</m:col>
+                <m:message>reference to entity &quot;google.timers.load.t.xjs&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>7</m:line>
+                <m:col>99</m:col>
+                <m:message>general entity &quot;google.report&quot; not defined and no default entity</m:message>
+            </m:error>
+
+            <m:error>
+                <m:line>7</m:line>
+                <m:col>112</m:col>
+                <m:message>reference to entity &quot;google.report&quot; for which no system identifier could be generated</m:message>
+            </m:error>
+
+        </m:errorlist>
+    </m:errors>
+    <m:warnings>
+        <m:warningcount>19</m:warningcount>
+        <m:warninglist>
+
+
+            <m:warning>
+                <m:line>1</m:line>
+                <m:col>461</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;ct&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>1</m:line>
+                <m:col>470</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;cad&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>1</m:line>
+                <m:col>480</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;zx&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>3</m:line>
+                <m:col>120</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;q&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>4</m:line>
+                <m:col>17</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;setTimeout&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>5</m:line>
+                <m:col>1306</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;tab&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>5</m:line>
+                <m:col>1763</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;raquo&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>5</m:line>
+                <m:col>1836</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;pref&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>5</m:line>
+                <m:col>1844</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;pval&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>5</m:line>
+                <m:col>1904</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;usg&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>5</m:line>
+                <m:col>2082</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;continue&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>5</m:line>
+                <m:col>2350</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;lol&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>5</m:line>
+                <m:col>2460</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;nbsp&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>5</m:line>
+                <m:col>3247</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;copy&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>5</m:line>
+                <m:col>3714</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;google.timers.load.t&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>6</m:line>
+                <m:col>120</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;google.j&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>6</m:line>
+                <m:col>130</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;google.j.xi&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>7</m:line>
+                <m:col>73</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;google.timers.load.t.xjs&quot;</m:message>
+            </m:warning>
+
+            <m:warning>
+                <m:line>7</m:line>
+                <m:col>99</m:col>
+                <m:message>cannot generate system identifier for general entity &quot;google.report&quot;</m:message>
+            </m:warning>
+
+        </m:warninglist>
+    </m:warnings>
+</m:markupvalidationresponse>
+</env:Body>
+</env:Envelope>
