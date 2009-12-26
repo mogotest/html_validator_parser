@@ -47,8 +47,14 @@ class HtmlValidatorParser
 
         error_hash[translate_name(error_component.name).to_sym] = error_component.content.strip
       end
-      
+
+      # Store errors for URI under :errors key.
       @results[uri][:errors] << error_hash
+
+      # Store errors for URI by line number.
+      error_line = error_hash[:line].to_i
+      init_error_for_line(uri, error_line)
+      @results[uri][error_line][:errors] << error_hash
     end
 
     xml.xpath("//Envelope/Body/markupvalidationresponse/warnings/warninglist/warning").each do |warning|
@@ -61,7 +67,13 @@ class HtmlValidatorParser
         warning_hash[translate_name(warning_component.name).to_sym] = warning_component.content.strip
       end
 
+      # Store warnings for URI under :warnings key.
       @results[uri][:warnings] << warning_hash
+
+      # Store warnings for URI by line number.
+      warning_line = warning_hash[:line].to_i
+      init_warning_for_line(uri, warning_line)
+      @results[uri][warning_line][:warnings] << warning_hash
     end
   end
 
@@ -83,6 +95,16 @@ class HtmlValidatorParser
     @results[uri] ||= {}
     @results[uri][:errors] ||= []
     @results[uri][:warnings] ||= []
+  end
+
+  def init_error_for_line(uri, line)
+    @results[uri][line] ||= {}
+    @results[uri][line][:errors] ||= []
+  end
+
+  def init_warning_for_line(uri, line)
+    @results[uri][line] ||= {}
+    @results[uri][line][:warnings] ||= []
   end
 
   def translate_name(name)
