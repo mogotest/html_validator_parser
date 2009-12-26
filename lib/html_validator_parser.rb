@@ -45,7 +45,7 @@ class HtmlValidatorParser
       error.children.each do |error_component|
         next if error_component.name == 'text'
 
-        error_hash[translate_name(error_component.name).to_sym] = error_component.content.strip
+        error_hash[translate_name(error_component.name)] = error_component.content.strip
       end
 
       # Store errors for URI under :errors key.
@@ -64,7 +64,7 @@ class HtmlValidatorParser
       warning.children.each do |warning_component|
         next if warning_component.name == 'text'
 
-        warning_hash[translate_name(warning_component.name).to_sym] = warning_component.content.strip
+        warning_hash[translate_name(warning_component.name)] = warning_component.content.strip
       end
 
       # Store warnings for URI under :warnings key.
@@ -109,8 +109,8 @@ class HtmlValidatorParser
 
   def translate_name(name)
     case name
-      when 'col' then 'column'
-      else name
+      when 'col' then :column
+      else name.to_sym
     end
   end
 
