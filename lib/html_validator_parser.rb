@@ -23,7 +23,8 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-require 'rexml/document'
+require 'rubygems'
+require 'nokogiri'
 
 class HtmlValidatorParser
 
@@ -32,31 +33,35 @@ class HtmlValidatorParser
   end
 
   def parse(response)
-    xml = REXML::Document.new(response)
-    uri = xml.root.elements["env:Body/m:markupvalidationresponse/m:uri"].get_text.value
+    xml = Nokogiri::XML(response)
+    xml.remove_namespaces!
 
-    xml.elements.each("env:Envelope/env:Body/m:markupvalidationresponse/m:errors/m:errorlist") do |error_list|
+    uri = xml.at_xpath("//Body/markupvalidationresponse/uri").content
+
+    xml.xpath("//Envelope/Body/markupvalidationresponse/errors/errorlist/error").each do |error|
       init_uri(uri)
 
-      error_list.elements.each("m:error") do |error|
-        @results[uri][:errors] << {
-                :line => error.elements["m:line"].nil? ? "" : error.elements["m:line"].get_text.value.strip,
-                :column => error.elements["m:col"].nil? ? "" : error.elements["m:col"].get_text.value.strip,
-                :message => error.elements["m:message"].nil? ? "" : error.elements["m:message"].get_text.value.strip
-        }
+      error_hash = {}
+      error.children.each do |error_component|
+        next if error_component.name == 'text'
+
+        error_hash[translate_name(error_component.name).to_sym] = error_component.content.strip
       end
+      
+      @results[uri][:errors] << error_hash
     end
 
-    xml.elements.each("env:Envelope/env:Body/m:markupvalidationresponse/m:warnings/m:warninglist") do |warning_list|
+    xml.xpath("//Envelope/Body/markupvalidationresponse/warnings/warninglist/warning").each do |warning|
       init_uri(uri)
 
-      warning_list.elements.each("m:warning") do |warning|
-        @results[uri][:warnings] << {
-                :line => warning.elements["m:line"].nil? ? "" : warning.elements["m:line"].get_text.value.strip,
-                :column => warning.elements["m:col"].nil? ? "" : warning.elements["m:col"].get_text.value.strip,                
-                :message => warning.elements["m:message"].nil? ? "" : warning.elements["m:message"].get_text.value.strip
-        }
+      warning_hash = {}
+      warning.children.each do |warning_component|
+        next if warning_component.name == 'text'
+
+        warning_hash[translate_name(warning_component.name).to_sym] = warning_component.content.strip
       end
+
+      @results[uri][:warnings] << warning_hash
     end
   end
 
@@ -78,6 +83,13 @@ class HtmlValidatorParser
     @results[uri] ||= {}
     @results[uri][:errors] ||= []
     @results[uri][:warnings] ||= []
+  end
+
+  def translate_name(name)
+    case name
+      when 'col' then 'column'
+      else name
+    end
   end
 
 end
