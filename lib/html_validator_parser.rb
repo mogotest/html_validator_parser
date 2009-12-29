@@ -37,10 +37,9 @@ class HtmlValidatorParser
     xml.remove_namespaces!
 
     uri = xml.at_xpath("//Body/markupvalidationresponse/uri").content
+    init_uri(uri)
 
     xml.xpath("//Envelope/Body/markupvalidationresponse/errors/errorlist/error").each do |error|
-      init_uri(uri)
-
       error_hash = {}
       error.children.each do |error_component|
         next if error_component.name == 'text'
@@ -58,8 +57,6 @@ class HtmlValidatorParser
     end
 
     xml.xpath("//Envelope/Body/markupvalidationresponse/warnings/warninglist/warning").each do |warning|
-      init_uri(uri)
-
       warning_hash = {}
       warning.children.each do |warning_component|
         next if warning_component.name == 'text'
