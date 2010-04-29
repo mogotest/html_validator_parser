@@ -27,6 +27,7 @@ require 'rubygems'
 require 'nokogiri'
 
 class HtmlValidatorParser
+  class ParseError < StandardError; end
 
   def initialize
     clear
@@ -36,41 +37,45 @@ class HtmlValidatorParser
     xml = Nokogiri::XML(response)
     xml.remove_namespaces!
 
-    uri = xml.at_xpath("//Body/markupvalidationresponse/uri").content
-    init_uri(uri)
+    if xml.at_xpath("//Body/Fault")
+      handle_fault(xml)
+    else
+      uri = xml.at_xpath("//Body/markupvalidationresponse/uri").content
+      init_uri(uri)
 
-    xml.xpath("//Envelope/Body/markupvalidationresponse/errors/errorlist/error").each do |error|
-      error_hash = {}
-      error.children.each do |error_component|
-        next if error_component.name == 'text'
+      xml.xpath("//Envelope/Body/markupvalidationresponse/errors/errorlist/error").each do |error|
+        error_hash = {}
+        error.children.each do |error_component|
+          next if error_component.name == 'text'
 
-        error_hash[translate_name(error_component.name)] = error_component.content.strip
+          error_hash[translate_name(error_component.name)] = error_component.content.strip
+        end
+
+        # Store errors for URI under :errors key.
+        @results[uri][:errors] << error_hash
+
+        # Store errors for URI by line number.
+        error_line = error_hash[:line].to_i
+        init_error_for_line(uri, error_line)
+        @results[uri][error_line][:errors] << error_hash
       end
 
-      # Store errors for URI under :errors key.
-      @results[uri][:errors] << error_hash
+      xml.xpath("//Envelope/Body/markupvalidationresponse/warnings/warninglist/warning").each do |warning|
+        warning_hash = {}
+        warning.children.each do |warning_component|
+          next if warning_component.name == 'text'
 
-      # Store errors for URI by line number.
-      error_line = error_hash[:line].to_i
-      init_error_for_line(uri, error_line)
-      @results[uri][error_line][:errors] << error_hash
-    end
+          warning_hash[translate_name(warning_component.name)] = warning_component.content.strip
+        end
 
-    xml.xpath("//Envelope/Body/markupvalidationresponse/warnings/warninglist/warning").each do |warning|
-      warning_hash = {}
-      warning.children.each do |warning_component|
-        next if warning_component.name == 'text'
+        # Store warnings for URI under :warnings key.
+        @results[uri][:warnings] << warning_hash
 
-        warning_hash[translate_name(warning_component.name)] = warning_component.content.strip
+        # Store warnings for URI by line number.
+        warning_line = warning_hash[:line].to_i
+        init_warning_for_line(uri, warning_line)
+        @results[uri][warning_line][:warnings] << warning_hash
       end
-
-      # Store warnings for URI under :warnings key.
-      @results[uri][:warnings] << warning_hash
-
-      # Store warnings for URI by line number.
-      warning_line = warning_hash[:line].to_i
-      init_warning_for_line(uri, warning_line)
-      @results[uri][warning_line][:warnings] << warning_hash
     end
   end
 
@@ -108,6 +113,22 @@ class HtmlValidatorParser
     case name
       when 'col' then :column
       else name.to_sym
+    end
+  end
+
+  def handle_fault(xml)
+    init_uri('Fault')
+    xml.xpath("//Envelope/Body/Fault/Detail/errordetail").each do |error|
+      if match = error.content.match(/line\s+(\d+)/i)
+        error_line = match[1].to_i
+        error_hash = { :line => error_line, :message => error.content }
+        init_error_for_line('Fault', error_line)
+
+        @results['Fault'][error_line][:errors] << error_hash
+        @results['Fault'][:errors] << error_hash
+      else
+        raise HtmlValidatorParser::ParseError
+      end
     end
   end
 

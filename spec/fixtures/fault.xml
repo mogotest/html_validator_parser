@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding="utf-8"?>
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope"
+            xmlns:m='http://www.w3.org/2005/10/markup-validator'>
+  <env:Body>
+   <env:Fault>
+     <env:Code>
+       <env:Value>env:Sender</env:Value>
+       <env:Subcode>
+        <env:Value>m:Exception</env:Value>
+       </env:Subcode>
+     </env:Code>
+
+     <env:Reason>
+       <env:Text xml:lang="en-US">Incorrect Bytes detected</env:Text>
+     </env:Reason>
+
+     <env:Detail>
+       <m:messageid>fatal_byte_error</m:messageid>
+       <m:errordetail xml:lang="en-US">
+        Sorry, I am unable to validate this document because on line
+        217.
+        it contained one or more bytes that I cannot interpret as
+        utf-8
+        (in other words, the bytes found are not valid values in the specified
+        Character Encoding). Please check both the content of the file and the
+        character encoding indication.
+       </m:errordetail>
+     </env:Detail>
+
+   </env:Fault>
+ </env:Body>
+</env:Envelope>
