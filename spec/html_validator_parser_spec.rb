@@ -73,7 +73,16 @@ describe "HTML Validator Parser" do
       error[:message].should match(/contained one or more bytes that I cannot interpret/)
     end
 
-    it "should raise if no line number is detected" do
+    it "should handle parse errors without a line number" do
+      @parser.parse(fault_results.gsub('line', 'could not parse'))
+      @parser['Fault'][1][:errors].size.should == 1
+
+      error = @parser['Fault'][1][:errors].first
+      error[:line].should == 1
+      error[:message].should match(/contained one or more bytes that I cannot interpret/)
+    end
+
+    it "should raise if fault is unidentified and no line number is detected" do
       lambda {
         @parser.parse(fault_results.gsub('line', 'xxxx'))
       }.should raise_error(HtmlValidatorParser::ParseError)

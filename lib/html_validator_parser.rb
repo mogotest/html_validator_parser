@@ -119,8 +119,8 @@ class HtmlValidatorParser
   def handle_fault(xml)
     init_uri('Fault')
     xml.xpath("//Envelope/Body/Fault/Detail/errordetail").each do |error|
-      if match = error.content.match(/line\s+(\d+)/i)
-        error_line = match[1].to_i
+      if match = error.content.match(/line\s+(\d+)/i) || error.content.match(/could not parse/)
+        error_line = (match[1] || 1).to_i
         error_hash = { :line => error_line, :message => error.content }
         init_error_for_line('Fault', error_line)
 
